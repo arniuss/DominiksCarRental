@@ -1,0 +1,74 @@
+﻿@model DominiksCarRental.ViewModels.ReservationViewModel
+
+<h1 class="text-center">Create a new reservation</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label asp-for="@Model.reservation.StartDate">Select Start Date</label>
+                <input asp-for="@Model.reservation.StartDate" class="form-control" type="date" value="@Model.reservation.StartDate.ToString("yyyy-MM-dd") ?? DateTime.Today.ToString(" yyyy-MM-dd")" />
+                <span asp-validation-for="@Model.reservation.StartDate" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="@Model.reservation.EndDate">Select End Date</label>
+                <input asp-for="@Model.reservation.EndDate" class="form-control" type="date" value="@Model.reservation.EndDate.ToString("yyyy-MM-dd") ?? DateTime.Today.ToString(" yyyy-MM-dd")" />
+                <span asp-validation-for="@Model.reservation.EndDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Name">Name</label>
+                <input asp-for="@Model.reservation.Name" class="form-control" value="@User.Identity.Name" readonly />
+                <span asp-validation-for="@Model.reservation.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Email">Email</label>
+            <input asp-for="@Model.reservation.Email" class="form-control" value="@Model.reservation.Email" readonly />
+                <span asp-validation-for="@Model.reservation.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Phone">Phone Number</label>
+            <input asp-for="@Model.reservation.Phone" class="form-control" value="@Model.reservation.Phone" />
+                <span asp-validation-for="@Model.reservation.Phone" class="text-danger"></span>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Name">Name</label>
+                <input asp-for="@Model.reservation.Name" class="form-control"/>
+                <span asp-validation-for="@Model.reservation.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Email">Email</label>
+                <input asp-for="@Model.reservation.Email" class="form-control"/>
+                <span asp-validation-for="@Model.reservation.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.reservation.Phone">Phone Number</label>
+            <input asp-for="@Model.reservation.Phone" class="form-control" />
+                <span asp-validation-for="@Model.reservation.Phone" class="text-danger"></span>
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="carDTO.Name">Car Name</label>
+        <input asp-for="@Model.reservation.CarName" value="@Model.carDTO.Name" class="form-control" readonly />
+        <span asp-validation-for="carDTO.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.reservation.Message">Message</label>
+        <textarea asp-for="@Model.reservation.Message" class="form-control" rows="5" placeholder="Enter your message here..."></textarea>
+    </div>
+    <input type="hidden" asp-for="carDTO.Id" />
+    <input type="hidden" asp-for="carDTO.Name" />
+    <input type="hidden" asp-for="carDTO.MainImage" />
+    <input type="hidden" asp-for="carDTO.CarTypeID" />
+    <input type="hidden" asp-for="carDTO.NumberOfSeats" />
+    <input type="hidden" asp-for="carDTO.Description" />
+    <input type="hidden" asp-for="carDTO.RentalPrice" />
+    <button type="submit" class="btn btn-primary mt-2">Make Reservation</button>
+</form>
+</div>

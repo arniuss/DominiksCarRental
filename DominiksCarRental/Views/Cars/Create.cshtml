@@ -1,0 +1,50 @@
+﻿@using DominiksCarRental.ViewModels
+@model DominiksCarRental.ViewModels.CarViewModel
+
+<h1>Create a new rental</h1>
+
+<form asp-action="Create" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="CarDTO.Id"><h5>Id</h5></label>
+		<input asp-for="CarDTO.Id" type="text" class="form-control" disabled/>
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.MainImage"><h5>Image of a car (URL)</h5></label>
+		<input asp-for="CarDTO.MainImage" type="text" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.Name"><h5>Name of the car</h5></label>
+		<input asp-for="CarDTO.Name" type="text" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.CarType"><h5>Type of the car</h5></label>
+		<select asp-for="CarDTO.CarType" class="form-control">
+			@foreach (var item in Model.CarTypes)
+			{
+				<option value="@item.ID">@item.Name</option>
+			}
+		</select>
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.NumberOfSeats"><h5>Number of the seats</h5></label>
+		<select asp-for="CarDTO.NumberOfSeats" class="form-control">
+			@for (int i = 1; i <= 10; i++)
+			{
+				<option value="@i">@i</option>
+			}
+		</select>
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.RentalPrice"><h5>Rental price</h5></label>
+		<input asp-for="CarDTO.RentalPrice" type="text" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="CarDTO.Description"><h5>Description</h5></label>
+		<textarea asp-for="CarDTO.Description" type="text" class="form-control"></textarea>
+	</div>
+	<div class="mt-2">
+		<input class="btn btn-success" type="submit" value="Create" />
+		<a class="btn btn-success" asp-controller="CarTypes" asp-action="Create">Add a New Type of a Car</a>
+		<a class="btn btn-danger" asp-controller="Cars" asp-action="Index">Back</a>
+	</div>
+</form>

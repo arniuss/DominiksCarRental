@@ -1,0 +1,63 @@
+﻿@model DominiksCarRental.Models.ContactFormModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> 1234 Main St, Cityville, Country</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> contact@domain.com</p>
+        </div>
+        <div class="col-md-6 loginRegister-container">
+            <h2>Contact Form</h2>
+            <form asp-action="Contact" method="post">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" value="@User.Identity.Name" readonly />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" value="" readonly />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone">Phone number</label>
+                        <input asp-for="Phone" class="form-control" value="@Model.Phone" readonly />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                }
+                <div class="form-group">
+                    <label asp-for="Phone">Phone Number</label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message">Message</label>
+                    <textarea asp-for="Message" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>

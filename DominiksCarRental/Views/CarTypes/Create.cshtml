@@ -1,0 +1,24 @@
+﻿@using DominiksCarRental.Models
+@model CarType
+
+<h1>Create a Car Type</h1>
+
+<form asp-action="Create" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="ID"><h5>Id</h5></label>
+		<input asp-for="ID" type="text" class="form-control" disabled />
+	</div>
+	<div class="form-group">
+		<label asp-for="Name"><h5>Type Of The Car</h5></label>
+		<input asp-for="Name" type="text" class="form-control" />
+	</div>
+		<div class="form-group">
+		<label asp-for="Cars"><h5>Car ID</h5></label>
+		<input asp-for="Cars" type="text" class="form-control" disabled />
+	</div>
+	<div class="mt-2">
+	<input type="submit" class="btn btn-success" value="Create" />
+	<a class="btn btn-danger" asp-controller="Cars" asp-action="Create">Back to Car Create</a>
+	<a class="btn btn-danger" asp-controller="CarTypes" asp-action="Index">Back to Car Types</a>
+	</div>
+</form>

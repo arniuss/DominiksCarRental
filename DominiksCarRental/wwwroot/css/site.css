@@ -1,0 +1,104 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.homepage-background {
+    background-image: url('/Images/MainPagePicture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.otherpage-background {
+    background-image: url('/Images/AnotherPagePicture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+body {
+    background-image: url('/Pictures/BackgroundImage.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.navbar {
+    background-color: black !important;
+}
+
+.navbar-brand {
+    color: white; 
+}
+
+.navbar-nav .nav-link {
+    color: white !important; 
+}
+body, h1, h2, h3, h4, h5, h6, p, a {
+    color: white !important;
+}
+.navbar-toggler-icon {
+    background-color: white;
+}
+.car-item {
+    background-color: #343a40; 
+    color: white;
+    border-radius: 8px;
+}
+.car-item h1,
+.car-item p,
+.car-item strong {
+    color: white; 
+}
+.custom-table,
+.custom-table td {
+    background-color: #343a40;
+    color: white;
+}
+.custom-table th {
+    background-color: #495057; 
+}
+.vh-70 {
+    height: 70vh;
+}
+.loginRegister-container {
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 8px;
+}
+.loginRegister-button {
+    background-color: #343a40;
+    border-radius: 12px;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+}
+
+.loginRegister-button:hover {
+    background-color: #ffffff; 
+    color: #343a40;
+}

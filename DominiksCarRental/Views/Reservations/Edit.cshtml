@@ -1,0 +1,44 @@
+﻿@model DominiksCarRental.Models.Reservation
+
+<h1 class="text-center">Create a new reservation</h1>
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label asp-for="StartDate">Select Start Date</label>
+                <input asp-for="StartDate" class="form-control" type="date" value="@Model.StartDate" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="EndDate">Select End Date</label>
+                <input asp-for="EndDate" class="form-control" type="date" value="@Model.EndDate" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" value="@Model.Name"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" value="@Model.Email"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Phone Number</label>
+        <input asp-for="Phone" class="form-control" value="@Model.Phone"/>
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CarName">Car Name</label>
+        <input asp-for="CarName" value="@Model.CarName" class="form-control" readonly />
+        <span asp-validation-for="CarName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Message">Message</label>
+        <textarea asp-for="Message" class="form-control" rows="5" value="@Model.Message"></textarea>
+    </div>   
+    <button type="submit" class="btn btn-primary mt-2">Make Reservation</button>
+</form>

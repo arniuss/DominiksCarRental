@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ContactFormModel>
+
+<style>
+    .small-id {
+        font-size: 0.35em;
+        color: #888;
+    }
+</style>
+
+<h1 class="text-center">List of Contact Form Messages</h1>
+
+@foreach (var contactForm in Model)
+{
+    <div class="car-item border border-dark">
+        <div>
+            <h2>@contactForm.Name <span class="small-id">(ID - @contactForm.Id)</span></h2>
+            <p><strong>Contact - </strong>Email: @contactForm.Email, Phone Number: @contactForm.Phone</p> 
+            <p><strong>Message - </strong>@contactForm.Message</p>
+        </div>
+        <form method="post" action="/ContactForms/Delete/@contactForm.Id">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>       
+    </div>
+}
