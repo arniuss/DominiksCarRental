@@ -24,9 +24,16 @@
                         <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
                     </td>
                     <td>
-                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                        </form>
+                        @if (user.UserName != "Admin")
+                        {
+                            <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Cannot delete Admin</span>
+                        }
                     </td>
                 </tr>
             }

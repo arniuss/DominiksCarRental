@@ -21,11 +21,18 @@
                     <td>@role.Name</td>
                     <td><a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@role.Id">Edit</a></td>
                     <td>
-                        <form asp-action="Delete" asp-route-id="@role.Id" method="post">
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                Delete
-                            </button>
-                        </form>
+                        @if (role.Name != "Admin")
+                        {
+                            <form asp-action="Delete" asp-route-id="@role.Id" method="post">
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Cannot delete admin role</span>
+                        }
                     </td>
             
                 </tr>
